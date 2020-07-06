@@ -22,9 +22,8 @@ export const viewMovie = (id)=>{
   }
 }
 export const getNewMovies =  (query,page) => {
-        // console.log("NEWMOVIE CALLED ", query,page )
   return async (dispatch)=>{
-    // dispatch(reqNew([]))
+
     try {
       let cancel;
             const movieData = await axios({
@@ -36,25 +35,13 @@ export const getNewMovies =  (query,page) => {
                 res =>  dispatch(successNewMovies( res.data.Search, res.data.totalResults)),
                 error => dispatch(failure(error))
             );
-        // console.log("Movie",movieData)
-
-        // if (movieData.length!== undefined) {
-        // // dispatch(successNewMovies(movieData.data.Search, movieData.data.totalResults));
-        // dispatch({
-        //     type: "GET_NEW_MOVIE",
-        //     movies :  movieData.data.Search,
-        //     // records:  movieData.data.totalResults,
-        //     })
-        // }
     } catch (error) {
-    //   dispatch(clearMovie ());
+
     }
   }
     }
 
 export const getMovies =  (query,page) => {
-        // console.log("UPDATE MOVIE CALLED ", query,page )
-        // dispatch(reqNew([]))
         return async (dispatch)=>{
             try {
                 let cancel;
@@ -67,9 +54,8 @@ export const getMovies =  (query,page) => {
                         res =>  dispatch(successMovies( res.data.Search, res.data.totalResults)),
                         error => dispatch(failure( error))
                     );
-                  // console.log("Movie",movieData)
               } catch (error) {
-                // dispatch(clearMovie ());
+
               }
         }
     }

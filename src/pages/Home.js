@@ -18,23 +18,7 @@ const _css = require('./index.css')
         };
     }
 
-    static getDerivedStateFromProps=async (nextProps, prevState)=> {
-        if (prevState.oldData == nextProps.movies) {
-        //   return {
-        //     oldData: computeDerivedState(nextProps),
-        //     someMirroredValue: nextProps.someValue
-        //   };
-
-        }
-    
-        // Return null to indicate no change to state.
-        return null;
-      }
-    
-
     async componentDidMount() {
-        //  await this.props.getMyMovies();
-    
         var options = {
           root: null, // Page as root
           rootMargin: "20px"
@@ -57,7 +41,6 @@ const _css = require('./index.css')
                     this.updatemovieList(this.state.query, _page)
                     this.setState({pageNumber: _page})
                 }
-                
             }
             this.setState({ prevY: y });
     }
@@ -71,7 +54,6 @@ const _css = require('./index.css')
 
       
 render(){
-    // console.log("PROPS", this.props.movies)
     const loadingCSS = {
         height: "100px",
         margin: "30px"
@@ -146,7 +128,6 @@ const mapStateToProps = state => {
     movies: state.movies.movies,
     fetchedRecords: state.movies.fetchedRecords,
     totalRecords: state.movies.totalRecords
-    // totalResults:state.room.catalogueColors
   }
 }
 

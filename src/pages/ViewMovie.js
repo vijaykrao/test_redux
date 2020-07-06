@@ -4,9 +4,7 @@ import { connect } from 'react-redux';
 
 import {viewMovie } from "../actions/movies"
 import axios from 'axios'
-// import '../node_modules/bootstrap/dist/cs/s/bootstrap.min.css';
 
-//  require('./App.css')
 
  class ViewMovies extends Component{
   constructor(props) {
@@ -19,7 +17,6 @@ import axios from 'axios'
 
 async componentDidMount(){
     let cancel;
-        // await this.props.viewMovie(this.props.match.params.id); 
      await axios({
             method:'GET',
             url:'http://www.omdbapi.com/?apikey=b9bd48a6',
