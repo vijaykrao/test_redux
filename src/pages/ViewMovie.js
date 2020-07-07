@@ -3,8 +3,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import {viewMovie } from "../actions/movies"
+
 import axios from 'axios'
 
+
+const _css = require('./index.css')
 
  class ViewMovies extends Component{
   constructor(props) {
@@ -28,9 +31,13 @@ async componentDidMount(){
         );   
 }
 
+backToMovies=(id)=>{
+  window.history.back();
+}
       render(){
           return (
             <div class="col-sm-12">
+              <button class="btn btn-primary btn-lg btn-ext" onClick={this.backToMovies}> back to search</button>
                 <div class="col-sm-4"></div>
                 <div>
                {this.state.movie !==null ? 
@@ -38,16 +45,17 @@ async componentDidMount(){
                         <br />
                       <div class="card" >
                           <img class="card-img-top" src={this.state.movie.Poster} alt={this.state.movie.Title} />
-                          <div>
-                          <br />
-                            <p class="card-text">{this.state.movie.Title}</p>
-                            <p class="card-text">{this.state.movie.Year}</p>
-                            <p class="card-text">{this.state.movie.Actors}</p>
-                            <p class="card-text">{this.state.movie.Country}</p>
-                            <p class="card-text">{this.state.movie.Director}</p>
-                            <p class="card-text">{this.state.movie.Genre}</p>
-                            <p class="card-text">{this.state.movie.Language}</p>
-                          </div>  
+                          <div class="card-header">
+                          {this.state.movie.Title}
+                          </div>
+                          <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Year      : {this.state.movie.Year}</li>
+                            <li class="list-group-item"> Actors   : {this.state.movie.Actors}</li>
+                            <li class="list-group-item">Country   : {this.state.movie.Country}</li>
+                            <li class="list-group-item">Directors : {this.state.movie.Director}</li>
+                            <li class="list-group-item">Genre     :{this.state.movie.Genre}</li>                        
+                            <li class="list-group-item">Language  : {this.state.movie.Language}</li> 
+                          </ul>
                           <br />                
                       </div>
                 </div>:""

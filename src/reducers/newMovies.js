@@ -6,8 +6,6 @@ const initialState ={
 
 
 const newMovies = (state = initialState, action) => {
-    // alert('HI')
-    console.log("MOVIES REDUCER, state", action, )
         switch (action.type) {
           case "GET_NEW_MOVIE":
           return {
@@ -19,7 +17,6 @@ const newMovies = (state = initialState, action) => {
 
           case "GET_MOVIE":
             const _data = state.movies.concat(action.movies);
-            // console.log("_data",_data)
             return {
               loader : false,
               movies:  _data,
