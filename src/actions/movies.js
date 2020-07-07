@@ -17,7 +17,6 @@ export const viewMovie = (id)=>{
                 error => dispatch(failureViewMovie(error))
             );
     } catch (error) {
-    //   dispatch(clearMovie ());
     }
   }
 }
